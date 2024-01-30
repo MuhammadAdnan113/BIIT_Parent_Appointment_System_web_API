@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BIIT_Parent_AppointmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="cnic" />
+          </Key>
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+          <Property Name="designation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="subject" Type="varchar" MaxLength="50" />
+          <Property Name="percentage" Type="int" />
+        </EntityType>
+        <EntityType Name="CGPA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="cgpa" Type="float" />
+        </EntityType>
+        <EntityType Name="Disciplinary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="actions" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FailedSubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="semester" Type="varchar" MaxLength="50" />
+          <Property Name="subject" Type="varchar" MaxLength="50" />
+          <Property Name="grade" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="int" Nullable="false" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+          <Property Name="attentive" Type="float" />
+          <Property Name="polite" Type="float" />
+          <Property Name="rudness" Type="float" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="startTime" Type="varchar" MaxLength="50" />
+          <Property Name="endTime" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="reason" Type="varchar" MaxLength="50" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+          <Property Name="parentId" Type="varchar" MaxLength="50" />
+          <Property Name="referedTo" Type="varchar" MaxLength="50" />
+          <Property Name="suggestion" Type="varchar" MaxLength="100" />
+          <Property Name="adminFeedback" Type="varchar" MaxLength="200" />
+          <Property Name="parentRating" Type="float" />
+        </EntityType>
+        <EntityType Name="IssuesList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="issue" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tsid" Type="int" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LeaveLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+          <Property Name="reason" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tsid" Type="int" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="reason" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+          <Property Name="parentId" Type="varchar" MaxLength="50" />
+          <Property Name="referedTo" Type="varchar" MaxLength="50" />
+          <Property Name="studentMeeting" Type="bit" />
+        </EntityType>
+        <EntityType Name="OTP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="code" Type="int" />
+          <Property Name="startTime" Type="varchar" MaxLength="50" />
+          <Property Name="endTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="cnic" />
+          </Key>
+          <Property Name="cnic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="regNo" />
+          </Key>
+          <Property Name="regNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="birthDate" Type="varchar" MaxLength="50" />
+          <Property Name="studentCNIC" Type="varchar" MaxLength="50" />
+          <Property Name="parentCNIC" Type="varchar" MaxLength="50" />
+          <Property Name="semester" Type="int" />
+          <Property Name="class" Type="varchar" MaxLength="50" />
+          <Property Name="section" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="tsid" />
+          </Key>
+          <Property Name="tsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="day" Type="varchar" MaxLength="50" />
+          <Property Name="startTime" Type="varchar" MaxLength="50" />
+          <Property Name="endTime" Type="varchar" MaxLength="50" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+          <Property Name="availability" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="cnic" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+          <Property Name="verify" Type="int" />
+        </EntityType>
+        <EntityType Name="WaitingList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tsId" Type="int" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="reason" Type="varchar" MaxLength="50" />
+          <Property Name="parentId" Type="varchar" MaxLength="50" />
+          <Property Name="adminId" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="WaitingLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="regNo" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="reason" Type="varchar" MaxLength="50" />
+          <Property Name="parentId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BIIT_Parent_AppointmentModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CGPA" EntityType="Self.CGPA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disciplinary" EntityType="Self.Disciplinary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FailedSubject" EntityType="Self.FailedSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IssuesList" EntityType="Self.IssuesList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveLog" EntityType="Self.LeaveLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OTP" EntityType="Self.OTP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parent" EntityType="Self.Parent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaitingList" EntityType="Self.WaitingList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaitingLog" EntityType="Self.WaitingLog" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BIIT_Parent_AppointmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="cnic" />
+          </Key>
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="percentage" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CGPA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cgpa1" Type="Double" />
+        </EntityType>
+        <EntityType Name="Disciplinary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="actions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FailedSubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="semester" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="grade" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="attentive" Type="Double" />
+          <Property Name="polite" Type="Double" />
+          <Property Name="rudness" Type="Double" />
+          <Property Name="hid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="startTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="referedTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="suggestion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="adminFeedback" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="parentRating" Type="Double" />
+        </EntityType>
+        <EntityType Name="IssuesList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="issue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LeaveLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tsid" Type="Int32" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="referedTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="studentMeeting" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="OTP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="Int32" />
+          <Property Name="startTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="cnic" />
+          </Key>
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="regNo" />
+          </Key>
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="birthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="studentCNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentCNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="semester" Type="Int32" />
+          <Property Name="class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="tsid" />
+          </Key>
+          <Property Name="tsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="day" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="startTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="availability" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="verify" Type="Int32" />
+        </EntityType>
+        <EntityType Name="WaitingList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tsId" Type="Int32" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WaitingLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="BIIT_Parent_AppointmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="CGPAs" EntityType="Self.CGPA" />
+          <EntitySet Name="Disciplinaries" EntityType="Self.Disciplinary" />
+          <EntitySet Name="FailedSubjects" EntityType="Self.FailedSubject" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Histories" EntityType="Self.History" />
+          <EntitySet Name="IssuesLists" EntityType="Self.IssuesList" />
+          <EntitySet Name="LeaveLogs" EntityType="Self.LeaveLog" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="OTPs" EntityType="Self.OTP" />
+          <EntitySet Name="Parents" EntityType="Self.Parent" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="TimeSlots" EntityType="Self.TimeSlot" />
+          <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+          <EntitySet Name="WaitingLists" EntityType="Self.WaitingList" />
+          <EntitySet Name="WaitingLogs" EntityType="Self.WaitingLog" />
+          <EntitySet Name="Leaves" EntityType="BIIT_Parent_AppointmentModel.Leave" />
+        </EntityContainer>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tsid" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BIIT_Parent_AppointmentModelStoreContainer" CdmEntityContainer="BIIT_Parent_AppointmentEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CGPAs">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.CGPA">
+              <MappingFragment StoreEntitySet="CGPA">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="cgpa1" ColumnName="cgpa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disciplinaries">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Disciplinary">
+              <MappingFragment StoreEntitySet="Disciplinary">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="actions" ColumnName="actions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FailedSubjects">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.FailedSubject">
+              <MappingFragment StoreEntitySet="FailedSubject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="hid" ColumnName="hid" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="attentive" ColumnName="attentive" />
+                <ScalarProperty Name="polite" ColumnName="polite" />
+                <ScalarProperty Name="rudness" ColumnName="rudness" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Histories">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="parentRating" ColumnName="parentRating" />
+                <ScalarProperty Name="hid" ColumnName="hid" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="referedTo" ColumnName="referedTo" />
+                <ScalarProperty Name="suggestion" ColumnName="suggestion" />
+                <ScalarProperty Name="adminFeedback" ColumnName="adminFeedback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IssuesLists">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.IssuesList">
+              <MappingFragment StoreEntitySet="IssuesList">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="issue" ColumnName="issue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveLogs">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.LeaveLog">
+              <MappingFragment StoreEntitySet="LeaveLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="studentMeeting" ColumnName="studentMeeting" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="tsid" ColumnName="tsid" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="referedTo" ColumnName="referedTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OTPs">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.OTP">
+              <MappingFragment StoreEntitySet="OTP">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parents">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Parent">
+              <MappingFragment StoreEntitySet="Parent">
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+                <ScalarProperty Name="studentCNIC" ColumnName="studentCNIC" />
+                <ScalarProperty Name="parentCNIC" ColumnName="parentCNIC" />
+                <ScalarProperty Name="semester" ColumnName="semester" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="section" ColumnName="section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSlots">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.TimeSlot">
+              <MappingFragment StoreEntitySet="TimeSlot">
+                <ScalarProperty Name="tsid" ColumnName="tsid" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="availability" ColumnName="availability" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogins">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="verify" ColumnName="verify" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaitingLists">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.WaitingList">
+              <MappingFragment StoreEntitySet="WaitingList">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tsId" ColumnName="tsId" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaitingLogs">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.WaitingLog">
+              <MappingFragment StoreEntitySet="WaitingLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="regNo" ColumnName="regNo" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leaves">
+            <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Leave">
+              <MappingFragment StoreEntitySet="Leave">
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="tsid" ColumnName="tsid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

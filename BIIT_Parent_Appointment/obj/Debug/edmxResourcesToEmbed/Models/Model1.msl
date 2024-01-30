@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BIIT_Parent_AppointmentModelStoreContainer" CdmEntityContainer="BIIT_Parent_AppointmentEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="designation" ColumnName="designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CGPAs">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.CGPA">
+        <MappingFragment StoreEntitySet="CGPA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="cgpa1" ColumnName="cgpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disciplinaries">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Disciplinary">
+        <MappingFragment StoreEntitySet="Disciplinary">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="actions" ColumnName="actions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FailedSubjects">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.FailedSubject">
+        <MappingFragment StoreEntitySet="FailedSubject">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="semester" ColumnName="semester" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="hid" ColumnName="hid" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="attentive" ColumnName="attentive" />
+          <ScalarProperty Name="polite" ColumnName="polite" />
+          <ScalarProperty Name="rudness" ColumnName="rudness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="parentRating" ColumnName="parentRating" />
+          <ScalarProperty Name="hid" ColumnName="hid" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+          <ScalarProperty Name="referedTo" ColumnName="referedTo" />
+          <ScalarProperty Name="suggestion" ColumnName="suggestion" />
+          <ScalarProperty Name="adminFeedback" ColumnName="adminFeedback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssuesLists">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.IssuesList">
+        <MappingFragment StoreEntitySet="IssuesList">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="issue" ColumnName="issue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveLogs">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.LeaveLog">
+        <MappingFragment StoreEntitySet="LeaveLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meetings">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="studentMeeting" ColumnName="studentMeeting" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="tsid" ColumnName="tsid" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+          <ScalarProperty Name="referedTo" ColumnName="referedTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTPs">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.OTP">
+        <MappingFragment StoreEntitySet="OTP">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parents">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Parent">
+        <MappingFragment StoreEntitySet="Parent">
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="studentCNIC" ColumnName="studentCNIC" />
+          <ScalarProperty Name="parentCNIC" ColumnName="parentCNIC" />
+          <ScalarProperty Name="semester" ColumnName="semester" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="section" ColumnName="section" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeSlots">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.TimeSlot">
+        <MappingFragment StoreEntitySet="TimeSlot">
+          <ScalarProperty Name="tsid" ColumnName="tsid" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="availability" ColumnName="availability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="verify" ColumnName="verify" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaitingLists">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.WaitingList">
+        <MappingFragment StoreEntitySet="WaitingList">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tsId" ColumnName="tsId" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaitingLogs">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.WaitingLog">
+        <MappingFragment StoreEntitySet="WaitingLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="regNo" ColumnName="regNo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaves">
+      <EntityTypeMapping TypeName="BIIT_Parent_AppointmentModel.Leave">
+        <MappingFragment StoreEntitySet="Leave">
+          <ScalarProperty Name="adminId" ColumnName="adminId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="tsid" ColumnName="tsid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
